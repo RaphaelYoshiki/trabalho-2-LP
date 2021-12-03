@@ -12,11 +12,13 @@ Heap *criaHeap() {
 }
 
 void pushObj(Heap *heap, Objeto *obj) {
-    heap->heap[heap->tam_heap++] = obj;
+    heap->heap[heap->tam_heap] = obj;
+    heap->tam_heap++;
 }
 
 Objeto *pop(Heap *heap) {
-    return heap->heap[heap->tam_heap--];
+    heap->tam_heap--;
+    return heap->heap[heap->tam_heap];
 }
 
 void mark(Objeto *obj) {
